@@ -3,17 +3,19 @@ class Names
   attr_reader :words
 
   def initialize(*args)
-    @words = args
+    @words = args.flatten.sort
   end
 
   def score
-    single_score(words.first)
+    words.collect.with_index do |word, index|
+      single_score(word, index)
+    end.inject(:+)
   end
 
-  def single_score(word)
+  def single_score(word, index)
     word.downcase.chars.inject(0) do |score, char|
       score + alphabet.index(char) + 1
-    end
+    end * (index+1)
   end
 
   private

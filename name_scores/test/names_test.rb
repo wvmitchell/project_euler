@@ -20,7 +20,17 @@ class NamesTest < MiniTest::Test
   end
 
   def test_it_knows_the_score_of_two_names
-
+    names = Names.new('ABE', 'bob')
+    assert_equal names.score, 46
   end
 
+  def test_it_knows_the_score_of_two_names_not_alphabetized
+    names = Names.new('bob', 'abe')
+    assert_equal names.score, 46
+  end
+
+  def test_it_knows_the_score_of_two_other_names_not_alphabetized
+    names = Names.new('bob', 'ABE')
+    assert_equal names.score, 46
+  end
 end
