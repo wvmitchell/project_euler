@@ -14,7 +14,7 @@ class Names
 
   def single_score(word, index)
     word.downcase.chars.inject(0) do |score, char|
-      score + alphabet.index(char) + 1
+      score + (alphabet.index(char) + 1)
     end * (index+1)
   end
 
