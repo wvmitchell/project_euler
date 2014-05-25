@@ -17,4 +17,9 @@ class CoinsTest < MiniTest::Test
     assert_equal 100, Coins.pound
     assert_equal 200, Coins.two_pound
   end
+
+  def test_it_returns_the_ways_to_a_given_sum
+    assert_equal 1, Coins.ways_to(1)
+  end
+
 end
